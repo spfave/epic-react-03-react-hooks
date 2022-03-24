@@ -42,7 +42,7 @@ function Greeting({initialName = ''}) {
   // }, [name])
 
   // Extra credit 3: use custom hook
-  const [name, setName] = useLocalStorageState(initialName, 'name')
+  const [name, setName] = useLocalStorageState('name', initialName)
 
   function handleChange(event) {
     setName(event.target.value)

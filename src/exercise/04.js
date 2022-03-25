@@ -2,10 +2,16 @@
 // http://localhost:3000/isolated/exercise/04.js
 
 import * as React from 'react'
+import {useLocalStorageState} from '../utils'
 
 function Board() {
   // 🐨 squares is the state for this component. Add useState for squares
-  const squares = Array(9).fill(null)
+  // const [squares, setSquares] = React.useState(Array(9).fill(null))
+  // Extra credit 1/2: save the current game state to local storage
+  const [squares, setSquares] = useLocalStorageState(
+    'squares',
+    Array(9).fill(null),
+  )
 
   // 🐨 We'll need the following bits of derived state:
   // - nextValue ('X' or 'O')
@@ -13,6 +19,9 @@ function Board() {
   // - status (`Winner: ${winner}`, `Scratch: Cat's game`, or `Next player: ${nextValue}`)
   // 💰 I've written the calculations for you! So you can use my utilities
   // below to create these variables
+  const nextValue = calculateNextValue(squares)
+  const winner = calculateWinner(squares)
+  const status = calculateStatus(winner, squares, nextValue)
 
   // This is the function your square click handler will call. `square` should
   // be an index. So if they click the center square, this will be `4`.
@@ -31,11 +40,17 @@ function Board() {
     // 💰 `squaresCopy[square] = nextValue`
     //
     // 🐨 set the squares to your copy
+    if (winner || squares[square] !== null) return
+
+    const newSquares = [...squares]
+    newSquares[square] = nextValue
+    setSquares(newSquares)
   }
 
   function restart() {
     // 🐨 reset the squares
     // 💰 `Array(9).fill(null)` will do it!
+    setSquares(Array(9).fill(null))
   }
 
   function renderSquare(i) {
@@ -49,7 +64,7 @@ function Board() {
   return (
     <div>
       {/* 🐨 put the status in the div below */}
-      <div className="status">STATUS</div>
+      <div className="status">{status}</div>
       <div className="board-row">
         {renderSquare(0)}
         {renderSquare(1)}

@@ -19,3 +19,7 @@ Creation of custom hooks - functions that use hooks to implement logic
 ## 03: Lifting State
 To share state between sibling components the state and state managers can be lifted to the closest common parent and provided to each child as props  
 To colocate state and its managers means to define it as close to where it is used as possible  
+
+## 04: Tic-Tac-Toe Game
+Managed state is state that is directly manged and updated  
+Derived state is state that is determined based on existing state

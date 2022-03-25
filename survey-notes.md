@@ -15,3 +15,7 @@ Input to useEffect hook:
 
 Passing a function as the initial value to useState performs "lazy" initialization - function will only be executed once on initial render  
 Creation of custom hooks - functions that use hooks to implement logic  
+
+## 03: Lifting State
+To share state between sibling components the state and state managers can be lifted to the closest common parent and provided to each child as props  
+To colocate state and its managers means to define it as close to where it is used as possible  

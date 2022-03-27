@@ -23,3 +23,8 @@ To colocate state and its managers means to define it as close to where it is us
 ## 04: Tic-Tac-Toe Game
 Managed state is state that is directly manged and updated  
 Derived state is state that is determined based on existing state
+
+## 05: DOM Interaction - useRef & useEffect
+React only creates elements/components in the virtual DOM the browser controls the actual DOM  
+During the render process the virtual DOM elements are recreated in the actual DOM for display  
+In other for React to have access and interact with an actual DOM element it needs a reference to that element  

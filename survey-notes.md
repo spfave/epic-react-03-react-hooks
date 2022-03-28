@@ -28,3 +28,8 @@ Derived state is state that is determined based on existing state
 React only creates elements/components in the virtual DOM the browser controls the actual DOM  
 During the render process the virtual DOM elements are recreated in the actual DOM for display  
 In other for React to have access and interact with an actual DOM element it needs a reference to that element  
+
+## 06: useEffect - HTTP requests
+Using a status variable with set options can simplify a component's conditional render logic  
+React error boundary components can be used to catch react errors (e.g. error during useEffect) as well as JS runtime errors  
+Changing a component's key prop will trigger a unmount and remount of that component  
